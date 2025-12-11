@@ -12,7 +12,7 @@ export class MetaService {
     constructor(
         @InjectRepository(Meta)
         private readonly metaRepository: Repository<Meta>
-    ) {}
+    ) { }
 
     //Listar todos
     async findAll(): Promise<Meta[]> {
@@ -37,13 +37,14 @@ export class MetaService {
     }
 
     // Atualizar meta
-    async update(id: number, meta: Meta): Promise<Meta> {
-        const busca = await this.metaRepository.findOne({ where: { id } });
+    async update(meta: Meta): Promise<Meta> {
+        // const busca = await this.metaRepository.findOne({ where: { id } });
 
-        if (!busca)
-            throw new HttpException('Meta não encontrada!', HttpStatus.NOT_FOUND);
+        // if (!busca)
+        //     throw new HttpException('Meta não encontrada!', HttpStatus.NOT_FOUND);
 
-        meta.id = id;
+        // meta.id = id;
+        await this.findById(meta.id)
 
         return await this.metaRepository.save(meta);
     }

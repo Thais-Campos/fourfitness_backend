@@ -5,20 +5,20 @@ import { IsNotEmpty } from "class-validator";
 export class Meta {
 
   @PrimaryGeneratedColumn()
-  id: number;
+  id: number
 
   @IsNotEmpty()
   @Column({ length: 255, nullable: false })
-  meta: string;
+  meta: string
 
   @Column({ type: "date", nullable: true })
-  data_limite: Date;
+  data_limite: string
 
-  @Column({
-    type: "enum",
-    enum: ["pendente", "andamento", "concluida", "cancelada"],
-    default: "pendente"
-  })
-  status: string;
+  // @Column({
+  //   type: "enum",
+  //   enum: ["pendente", "andamento", "concluida", "cancelada"],
+  //   default: "pendente"
+  // })
+  // status: string;
 }
 

@@ -5,42 +5,42 @@ import { Meta } from "../entities/meta.entitys";
 
 @Controller("/meta")
 export class MetaController {
-    constructor (private readonly metaService: MetaService) { }
+  constructor(private readonly metaService: MetaService) { }
 
-//Listar todos
-@Get()
-@HttpCode(HttpStatus.OK)
-findAll(): Promise<Meta[]> {
-return this.metaService.findAll();
-}
+  //Listar todos
+  @Get()
+  @HttpCode(HttpStatus.OK)
+  findAll(): Promise<Meta[]> {
+    return this.metaService.findAll();
+  }
 
-//Buscar por id
-@Get('/:id')
-@HttpCode(HttpStatus.OK)
-findById(@Param('id', ParseIntPipe) id: number): Promise<Meta> {
-return this.metaService.findById(id);
-}
+  //Buscar por id
+  @Get('/:id')
+  @HttpCode(HttpStatus.OK)
+  findById(@Param('id', ParseIntPipe) id: number): Promise<Meta> {
+    return this.metaService.findById(id);
+  }
 
-//Cria meta
-@Post()
-@HttpCode(HttpStatus.CREATED)
+  //Cria meta
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
   async create(@Body() meta: Meta): Promise<Meta> {
     return await this.metaService.create(meta);
   }
 
-// Atualizar meta
-@Put('/:id')
-@HttpCode(HttpStatus.OK)
+  // Atualizar meta
+  @Put()
+  @HttpCode(HttpStatus.OK)
   async update(
-    @Param('id') id: number,
+    // @Param('id') id: number,
     @Body() meta: Meta
   ): Promise<Meta> {
-    return await this.metaService.update(id, meta);
+    return await this.metaService.update(meta);
   }
 
-// Deletar meta
-@Delete('/:id')
-@HttpCode(HttpStatus.NO_CONTENT)
+  // Deletar meta
+  @Delete('/:id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param('id') id: number): Promise<void> {
     return await this.metaService.delete(id);
   }
