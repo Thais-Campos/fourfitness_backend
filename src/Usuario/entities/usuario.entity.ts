@@ -1,6 +1,7 @@
 import { IsEAN, IsEmail, IsNotEmpty } from "class-validator"
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 import { Treino } from "../../treino/entities/treino.entity"
+import { Meta } from "../../meta/entities/meta.entitys"
 
 
 @Entity({ name: "tb_usuarios" })
@@ -37,7 +38,12 @@ export class Usuario {
     @ManyToOne(() => Treino, (treino) => treino.usuario, {
         onDelete: "CASCADE"
     })
-    treino: Treino
+    treino: Treino;
+
+    @ManyToOne(() => Meta, (meta) => meta.usuario, {
+    onDelete: "CASCADE"
+  })
+  meta: Meta
 
 }
 

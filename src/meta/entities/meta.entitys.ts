@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty } from "class-validator";
+import { Usuario } from "../../usuario/entities/usuario.entity";
 
 @Entity({ name: "tb_metas" })
 export class Meta {
@@ -14,11 +15,15 @@ export class Meta {
   @Column({ type: "date", nullable: true })
   data_limite: string
 
+  @OneToMany(() => Usuario, (usuario) => usuario.meta)
+  usuario: Usuario[]
+
+}
   // @Column({
   //   type: "enum",
   //   enum: ["pendente", "andamento", "concluida", "cancelada"],
   //   default: "pendente"
   // })
   // status: string;
-}
+
 

@@ -16,13 +16,20 @@ export class MetaService {
 
     //Listar todos
     async findAll(): Promise<Meta[]> {
-        return await this.metaRepository.find();
+        return await this.metaRepository.find({
+                relations: {
+                usuario: true
+            }
+        });
     }
 
     //Buscar por ID
     async findById(id: number): Promise<Meta> {
         const meta = await this.metaRepository.findOne({
-            where: { id }
+            where: { id },
+                relations: {
+                usuario: true
+            }
         });
 
         if (!meta)
