@@ -6,39 +6,39 @@ import { UsuarioService } from "../services/usuario.service";
 export class UsuarioController {
   constructor(private readonly usuarioService: UsuarioService) { }
 
-@Get()
+  @Get()
   @HttpCode(HttpStatus.OK)
   findAll(): Promise<Usuario[]> {
     return this.usuarioService.findAll();
   }
 
-@Get('/:id')
+  @Get('/:id')
   @HttpCode(HttpStatus.OK)
   findById(@Param('id', ParseIntPipe) id: number): Promise<Usuario> {
     return this.usuarioService.findById(id);
   }
 
-@Get('/Nome/:Nome')
+  @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
   findByNome(@Param('nome') nome: string): Promise<Usuario[]> {
     return this.usuarioService.findByNome(nome);
   }
 
-@Post()
+  @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() usuario: Usuario): Promise<Usuario>{
+  create(@Body() usuario: Usuario): Promise<Usuario> {
     return this.usuarioService.create(usuario);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
-  update(@Body() usuario: Usuario): Promise<Usuario>{
+  update(@Body() usuario: Usuario): Promise<Usuario> {
     return this.usuarioService.update(usuario);
   }
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  delete(@Param('id', ParseIntPipe) id: number){
+  delete(@Param('id', ParseIntPipe) id: number) {
     return this.usuarioService.delete(id);
   }
 }

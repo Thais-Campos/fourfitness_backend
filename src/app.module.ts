@@ -11,7 +11,7 @@ import { UsuarioModule } from './Usuario/usuario.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-          isGlobal: true,
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -23,12 +23,12 @@ import { UsuarioModule } from './Usuario/usuario.module';
       entities: [Usuario],
       synchronize: true,
     }),
-    
+
     UsuarioModule
-],
-    controllers: [],
-    providers: [],
-    exports: [],
+  ],
+  controllers: [],
+  providers: [],
+  exports: [],
 })
 
-export class AppModule {}
+export class AppModule { }
