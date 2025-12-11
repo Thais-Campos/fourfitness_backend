@@ -15,15 +15,18 @@ export class Meta {
   @Column({ type: "date", nullable: true })
   data_limite: string
 
-  @OneToMany(() => Usuario, (usuario) => usuario.meta)
+  @OneToMany(() => Usuario, (usuario) => usuario.meta,
+    {
+      onDelete: "CASCADE"
+    })
   usuario: Usuario[]
 
 }
-  // @Column({
-  //   type: "enum",
-  //   enum: ["pendente", "andamento", "concluida", "cancelada"],
-  //   default: "pendente"
-  // })
-  // status: string;
+// @Column({
+//   type: "enum",
+//   enum: ["pendente", "andamento", "concluida", "cancelada"],
+//   default: "pendente"
+// })
+// status: string;
 
 

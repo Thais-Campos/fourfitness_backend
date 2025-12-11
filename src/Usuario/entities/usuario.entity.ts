@@ -7,40 +7,40 @@ import { Meta } from "../../meta/entities/meta.entitys"
 @Entity({ name: "tb_usuarios" })
 export class Usuario {
 
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number
 
-    @IsNotEmpty()
-    @Column({ length: 100, nullable: false })
-    nome: string
+  @IsNotEmpty()
+  @Column({ length: 100, nullable: false })
+  nome: string
 
-    @IsNotEmpty()
-    @IsEmail()
-    @Column({ length: 150, nullable: false })
-    email: string
+  @IsNotEmpty()
+  @IsEmail()
+  @Column({ length: 150, nullable: false })
+  email: string
 
-    @IsNotEmpty()
-    @Column({ length: 20, nullable: false })
-    matricula: string;
+  @IsNotEmpty()
+  @Column({ length: 20, nullable: false })
+  matricula: string;
 
-    @IsNotEmpty()
-    @Column({ nullable: false })
-    idade: number;
+  @IsNotEmpty()
+  @Column({ nullable: false })
+  idade: number;
 
-    @IsNotEmpty()
-    @Column({ type: 'decimal', precision: 5, scale: 2 })
-    peso: number;
+  @IsNotEmpty()
+  @Column({ type: 'decimal', precision: 5, scale: 2 })
+  peso: number;
 
-    @IsNotEmpty()
-    @Column({ type: 'decimal', precision: 5, scale: 2 })
-    altura: number;
+  @IsNotEmpty()
+  @Column({ type: 'decimal', precision: 5, scale: 2 })
+  altura: number;
 
-    @ManyToOne(() => Treino, (treino) => treino.usuario, {
-        onDelete: "CASCADE"
-    })
-    treino: Treino;
+  @ManyToOne(() => Treino, (treino) => treino.usuario, {
+    onDelete: "CASCADE"
+  })
+  treino: Treino;
 
-    @ManyToOne(() => Meta, (meta) => meta.usuario, {
+  @ManyToOne(() => Meta, (meta) => meta.usuario, {
     onDelete: "CASCADE"
   })
   meta: Meta
