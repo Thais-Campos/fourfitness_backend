@@ -13,13 +13,13 @@ export class TreinoController {
         return this.treinoService.findAll();
     }
 
-    @Get()
+    @Get('/:id')
     @HttpCode(HttpStatus.OK)
     findById(@Param('id', ParseIntPipe) id: number): Promise<Treino[]> {
         return this.treinoService.findAll();
     }
 
-    @Get()
+    @Get('/divisao/:divisao')
     @HttpCode(HttpStatus.OK)
     findByDivisao(@Param('divisao', ParseIntPipe) divisao: string): Promise<Treino[]> {
         return this.treinoService.findAll();
