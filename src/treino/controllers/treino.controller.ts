@@ -37,7 +37,7 @@ export class TreinoController {
         return this.treinoService.update(treino);
     }
 
-    @Delete()
+    @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     delete(@Param('id', ParseIntPipe) id: number) {
         return this.treinoService.delete(id);
