@@ -1,8 +1,8 @@
 import { InjectRepository } from "@nestjs/typeorm";
-import { Usuario } from "../entities/usuario.entity";
 import { ILike, Repository } from "typeorm";
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { DeleteResult } from "typeorm/browser";
+import { Usuario } from "../entities/usuario.entity";
 
 
 @Injectable()
@@ -13,13 +13,20 @@ export class UsuarioService {
     ) { }
 
     async findAll(): Promise<Usuario[]> {
-        return await this.usuarioRepository.find();
+        return await this.usuarioRepository.find({
+             relations: {
+                treino: true
+            }
+        });
     }
     async findById(id: number): Promise<Usuario> {
 
         const usuario = await this.usuarioRepository.findOne({
             where: {
                 id
+            },
+             relations: {
+                treino: true
             }
         });
 
@@ -33,6 +40,9 @@ export class UsuarioService {
         return await this.usuarioRepository.find({
             where: {
                 nome: ILike(`%${nome}%`)
+            },
+             relations: {
+                treino: true
             }
         })
     }

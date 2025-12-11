@@ -8,7 +8,7 @@ import { TreinoController } from "./controllers/treino.controller";
     imports: [TypeOrmModule.forFeature([ Treino ])],
     controllers: [TreinoController],
     providers: [TreinoService],
-    exports: [],
+    exports: [TreinoService],
 })
 
 export class TreinoModule { }

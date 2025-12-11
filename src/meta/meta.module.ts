@@ -8,6 +8,6 @@ import { MetaController } from "./controller/meta.controller";
   imports: [TypeOrmModule.forFeature([Meta])],
   providers: [MetaService],
   controllers: [MetaController],
-  exports: [],
+  exports: [MetaService],
 })
 export class MetaModule {}

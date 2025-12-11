@@ -13,13 +13,20 @@ export class TreinoService {
     ) { }
 
     async findAll(): Promise<Treino[]> {
-        return await this.treinoRepository.find();
+        return await this.treinoRepository.find({
+            relations: {
+                usuario: true
+            }
+        });
     }
 
     async findById(id: number): Promise<Treino> {
         const treino = await this.treinoRepository.findOne({
             where: {
                 id
+            },
+            relations: {
+                usuario: true
             }
         });
 
@@ -28,11 +35,14 @@ export class TreinoService {
 
         return treino;
     }
-    
+
     async findAllByDivisao(divisao: string): Promise<Treino[]> {
         return await this.treinoRepository.find({
             where: {
                 divisao: ILike(`%${divisao}%`)
+            },
+            relations: {
+                usuario: true
             }
         })
     }

@@ -1,5 +1,6 @@
 import { IsNotEmpty } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Usuario } from "../../usuario/entities/usuario.entity";
 
 
 @Entity({ name: 'tb_treino' })
@@ -23,5 +24,11 @@ export class Treino {
     @IsNotEmpty()
     @Column({ type: 'time', nullable: false })
     duracao: string;
+
+    @OneToMany(() => Usuario, (usuario) => usuario.treino, {
+        onDelete: "CASCADE"
+    })
+    usuario: Usuario[]
+
 
 }

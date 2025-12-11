@@ -5,8 +5,8 @@ import { Treino } from './treino/entities/treino.entity';
 import { TreinoModule } from './treino/treino.module';
 import { Meta } from './meta/entities/meta.entitys';
 import { MetaModule } from './meta/meta.module';
-import { Usuario } from './Usuario/entities/usuario.entity';
-import { UsuarioModule } from './Usuario/usuario.module';
+import { Usuario } from './usuario/entities/usuario.entity';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
