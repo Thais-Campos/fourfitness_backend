@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { Treino } from './treino/entities/treino.entity';
+import { TreinoModule } from './treino/treino.module';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { Treino } from './treino/entities/treino.entity';
       entities: [Treino],
       synchronize: true,
     }),
-
+    TreinoModule
 ],
   controllers: [],
   providers: [],

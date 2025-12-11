@@ -15,14 +15,14 @@ export class TreinoController {
 
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
-    findById(@Param('id', ParseIntPipe) id: number): Promise<Treino[]> {
-        return this.treinoService.findAll();
+    findById(@Param('id', ParseIntPipe) id: number): Promise<Treino> {
+        return this.treinoService.findById(id);
     }
 
     @Get('/divisao/:divisao')
     @HttpCode(HttpStatus.OK)
-    findByDivisao(@Param('divisao', ParseIntPipe) divisao: string): Promise<Treino[]> {
-        return this.treinoService.findAll();
+    findByDivisao(@Param('divisao') divisao: string): Promise<Treino[]> {
+        return this.treinoService.findAllByDivisao(divisao);
     }
 
     @Post()

@@ -28,6 +28,7 @@ export class TreinoService {
 
         return treino;
     }
+    
     async findAllByDivisao(divisao: string): Promise<Treino[]> {
         return await this.treinoRepository.find({
             where: {
@@ -40,14 +41,14 @@ export class TreinoService {
         return await this.treinoRepository.save(treino);
     }
 
-     async update(treino: Treino): Promise<Treino>{
-            await this.findById(treino.id)
-            return await this.treinoRepository.save(treino);
-        }
+    async update(treino: Treino): Promise<Treino> {
+        await this.findById(treino.id)
+        return await this.treinoRepository.save(treino);
+    }
 
-         async delete(id: number): Promise<DeleteResult>{
-            await this.findById(id)
-            return await this.treinoRepository.delete(id);
-        }
+    async delete(id: number): Promise<DeleteResult> {
+        await this.findById(id)
+        return await this.treinoRepository.delete(id);
+    }
 
 }
