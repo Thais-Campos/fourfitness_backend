@@ -28,4 +28,18 @@ Projeto desenvolvido em **equipe**, com foco em aprendizado prático de arquitet
 - **TypeORM**
 - **Swagger**
 
+## 👩‍💻 Autoria
 
+Projeto desenvolvido em equipe, como parte de um projeto educacional Full Stack.
+
+Back-end desenvolvido com foco em:
+
+Criação de APIs REST
+
+Modelagem de dados
+
+Integração com banco de dados SQL
+
+Boas práticas de arquitetura
+
+Preparação para integração com front-end
